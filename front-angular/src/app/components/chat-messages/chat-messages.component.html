@@ -1,0 +1,16 @@
+@if (connectionState === 'disconnected') {
+  <p class="text-center">Connect to see the chat</p>
+} @else if (connectionState === 'inital-connection') {
+  <p class="text-center">Joining to the chat</p>
+} @else {
+  @if (messages.length === 0) {
+    <p class="text-center">No messages yet</p>
+  } @else {
+    @for (message of messages; track $index) {
+      <app-message
+        class="block"
+        [message]="message"
+      />
+    }
+  }
+}

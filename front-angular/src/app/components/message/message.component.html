@@ -1,0 +1,50 @@
+<div
+  class="flex"
+  [ngClass]="{
+    'justify-center': message.from === 'server',
+    'justify-end': message.from === username
+  }"
+>
+  <div class="flex">
+    @if (message.from !== username && message.from !== 'server') {
+      <app-tail dir="in"></app-tail>
+    }
+    <div
+      class="p-2 rounded w-fit flex flex-col gap-2"
+      [ngClass]="{
+        'bg-neutral-800 text-white': message.from !== 'server',
+        'bg-neutral-500': message.from === 'server',
+        'rounded-tr-none': message.from === username,
+        'rounded-tl-none': message.from !== username && message.from !== 'server',
+      }"
+    >
+      @if (message.from !== 'server' && message.from !== username) {
+        <p class="text-[#00cb79]">
+          {{ message.from }}
+        </p>
+      }
+      @if (message.image != null) {
+        <img
+          class="rounded"
+          src="http://localhost:8080/public/tmp/image/{{ message.image }}"
+          alt="Image"
+        />
+      }
+      @if (message.audio != null) {
+        <audio 
+          src="http://localhost:8080/public/tmp/video/{{ message.audio }}" 
+          controls 
+        >
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+      }
+      <p>
+        {{ message.text }}
+      </p>
+    </div>
+    @if (message.from === username) {
+      <app-tail dir="out"></app-tail>
+    }
+  </div>
+</div>

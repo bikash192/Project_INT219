@@ -1,0 +1,25 @@
+{
+  "name": "angular-chat",
+  "version": "1.0.0",
+  "description": "Chat made with scoket.io and angular",
+  "repository": "https://github.com/rjsnhk/INT219-UNI-CHAT",
+  "workspaces": [
+    "front-angular",
+    "server-node"
+  ],
+  "scripts": {
+    "dev": "pnpm dev:server & pnpm dev:front",
+    "lint": "eslint --ext .ts"
+  },
+  "keywords": [],
+  "author": "Rajesh ",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "7.5.0",
+    "eslint": "8.57.0",
+    "eslint-config-love": "44.0.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-promise": "6.1.1"
+  }
+}
